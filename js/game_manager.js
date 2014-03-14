@@ -12,6 +12,12 @@ function GameManager(size, InputManager, Actuator, ScoreManager) {
   this.setup();
 }
 
+GameManager.prototype.loadScript = function (CustomizedScript) {
+  this.customizedAddTile = CustomizedScript;
+  this.restart();
+  alert(this.customizedAddTile)
+}
+
 // Restart the game
 GameManager.prototype.restart = function () {
   this.actuator.restart();
@@ -43,10 +49,13 @@ GameManager.prototype.addStartTiles = function () {
 // Adds a tile in a random position
 GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
-    var value = Math.random() < 0.9 ? 2 : 4;
-    var tile = new Tile(this.grid.randomAvailableCell(), value);
+    if (this.customizedAddTile == null) {  
+      var value = Math.random() < 0.9 ? 2 : 4;
+      var tile = new Tile(this.grid.randomAvailableCell(), value);
 
-    this.grid.insertTile(tile);
+      this.grid.insertTile(tile);
+    }
+    else this.customizedAddTile();
   }
 };
 

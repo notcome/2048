@@ -1,5 +1,5 @@
 @import url(fonts/clear-sans.css);
-html, body {
+html, body, .customized-script {
   margin: 0;
   padding: 0;
   background: #faf8ef;
@@ -478,6 +478,12 @@ hr {
 
 .game-explanation {
   margin-top: 50px; }
+
+.customized-script {
+  font-family: Menlo, "Courier New", Courier, monospace;
+  resize: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  max-width: 98%; }
 
 @media screen and (max-width: 480px) {
   html, body {
